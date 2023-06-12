@@ -14,12 +14,10 @@ const LogIn = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                // Handle successful log-in
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                // Handle log-in error
             });
     };
 
