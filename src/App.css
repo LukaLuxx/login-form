@@ -1,3 +1,71 @@
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+
+html,
+body {
+    display: grid;
+    height: 100vh;
+    background: #94bbe9;
+    place-items: center;
+    overflow: hidden;
+}
 .App {
     text-align: center;
+    height: 100vh;
+    background: rgb(238, 174, 202);
+    background: radial-gradient(
+        circle,
+        rgba(238, 174, 202, 1) 0%,
+        rgba(148, 187, 233, 1) 100%
+    );
+}
+
+.login-question {
+    font-size: 12px;
+}
+
+.submit-container {
+    margin: auto;
+    padding: 100px;
+}
+
+a {
+    color: darkblue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: green;
+    text-decoration: underline;
+}
+
+h2 {
+    color: darkblue;
+}
+
+p {
+    margin: 10px;
+}
+
+input {
+    margin: 10px;
+}
+
+input::placeholder {
+    display: none;
+}
+
+input[type="email"]:focus::placeholder,
+input[type="password"]:focus::placeholder {
+    color: transparent;
+}
+
+@media only screen and (max-width: 525px) {
+    .submit-container {
+        overflow: hidden;
+        padding: 50px;
+    }
 }
