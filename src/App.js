@@ -25,11 +25,29 @@ function App() {
     }, []);
 
     const handleAddToCart = (product) => {
-        setCartItems((prevItems) => {
-            const updatedCartItems = [...prevItems, product];
+        const existingItem = cartItems.find((item) => item.id === product.id);
+
+        if (existingItem) {
+            // If the item already exists, update its quantity
+            const updatedCartItems = cartItems.map((item) => {
+                if (item.id === product.id) {
+                    return { ...item, quantity: (item.quantity || 1) + 1 };
+                }
+                return item;
+            });
+
+            setCartItems(updatedCartItems);
             localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-            return updatedCartItems;
-        });
+        } else {
+            const updatedCartItems = [
+                ...cartItems,
+                { ...product, quantity: 1 },
+            ];
+
+            setCartItems(updatedCartItems);
+            localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+        }
+
         setTotalAmount((prevAmount) => prevAmount + product.price);
     };
 

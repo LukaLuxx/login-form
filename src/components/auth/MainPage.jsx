@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MainPage = ({ handleAddToCart }) => {
     const getItemsPerRow = () => {
@@ -38,7 +40,19 @@ const MainPage = ({ handleAddToCart }) => {
         };
     }, []);
 
+    const handleAddItemClick = (product) => {
+        handleAddToCart(product);
+        toast.success("Item added to cart!", {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 1000,
+        });
+    };
+
     const renderProductRows = () => {
+        if (!products || products.length === 0) {
+            return <div>No products available.</div>;
+        }
+
         const rows = [];
 
         for (let i = 0; i < products.length; i += itemsPerRow) {
@@ -54,7 +68,7 @@ const MainPage = ({ handleAddToCart }) => {
                                 className="product-image"
                             />
                             <p>{product.price} $</p>
-                            <button onClick={() => handleAddToCart(product)}>
+                            <button onClick={() => handleAddItemClick(product)}>
                                 Add to Cart
                             </button>
                         </div>
@@ -81,6 +95,7 @@ const MainPage = ({ handleAddToCart }) => {
             <button className="logoutBtn">
                 <Link to="/">Log Out</Link>
             </button>
+            <ToastContainer />
         </div>
     );
 };
