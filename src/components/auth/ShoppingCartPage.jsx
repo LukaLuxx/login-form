@@ -83,7 +83,7 @@ const ShoppingCartPage = ({
 
     useEffect(() => {
         calculateTotalAmount();
-    }, [cartItems]);
+    }, [cartItems, calculateTotalAmount]);
 
     const calculateTotalAmount = () => {
         let total = 0;
