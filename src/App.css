@@ -10,7 +10,7 @@ body {
     height: 100vh;
     background: #94bbe9;
     place-items: center;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .App {
     text-align: center;
@@ -163,6 +163,7 @@ input[type="password"]:focus::placeholder {
     .shopping-cart-page th,
     .shopping-cart-page td {
         font-size: 12px;
+        text-align: center;
     }
 }
 
