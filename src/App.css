@@ -162,6 +162,12 @@ input[type="password"]:focus::placeholder {
 @media (max-width: 400px) {
     .shopping-cart-page th,
     .shopping-cart-page td {
-        font-size: 14px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .item-title {
+        padding-left: 35px;
     }
 }
