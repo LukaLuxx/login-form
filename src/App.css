@@ -171,3 +171,9 @@ input[type="password"]:focus::placeholder {
         padding-left: 35px;
     }
 }
+@media (max-width: 400px) {
+    .shopping-cart-page th,
+    .shopping-cart-page td {
+        overflow-x: scroll;
+    }
+}
