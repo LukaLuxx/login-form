@@ -170,7 +170,7 @@ const ShoppingCartPage = ({
             <table>
                 <thead>
                     <tr>
-                        <th className="product">Product</th>
+                        <th>Product</th>
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Subtotal</th>
